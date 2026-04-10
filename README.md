@@ -22,5 +22,21 @@ Technologies used:
 - AES Encryption (Secure transmission of game data)
 - UDP Protocol (Low-latency communication for real-time gameplay)
 
+Steps:
+1) Clone the repo & open it in vs code.
+2) Open terminal 1:
+```bash
+python server.py
+```
+3) Open terminal 2:
+```bash
+cd CN_Game_Web
+python bridge.py
+```
+(follow the link displayed in the terminal to open & use the website)
+4) Open terminal 3:(optional to simulate ping & see stats)
+```bash
+python client.py
+```
+If you have sql extension, then you can also view the db named **game_data.db** once you start the server.
 This project demonstrates basic networking concepts like UDP communication, parallel processing and secure data transmission.
- 
