@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi Game System</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <style>
+        body{
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .menu button{
+            margin: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #gameArea{
+            width: 400px;
+            height: 200px;
+            border: 2px solid black;
+            position: relative;
+            margin: auto;
+            background: #f5f5f5;
+        }
+
+        #players div{
+            transition: 0.2s;
+        }
+
+        button{
+            margin: 5px;
+            padding: 6px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>🎮 Multi Game System</h2>
+
+<div class="menu">
+    <button onclick="startGame('click')">Click Race ⚡</button>
+    <button onclick="startGame('guess')">Guess Game 🔢</button>
+    <button onclick="startGame('xox')">XOX ❌⭕</button>
+    <button onclick="startGame('multiplayer')">Movement Game 🎮</button>
+</div>
+
+<hr>
+
+<!-- dynamic games -->
+<div id="gameContainer"></div>
+
+<!-- 🎮 MULTIPLAYER GAME -->
+<div id="multiplayerUI" style="display:none;">
+
+    <h2>Movement Game</h2>
+
+    <div id="gameArea">
+        <div id="players"></div>
+    </div>
+
+    <br>
+
+    <button onclick="sendCommand('up')">UP ⬆️</button><br>
+
+    <button onclick="sendCommand('left')">LEFT ⬅️</button>
+    <button onclick="sendCommand('right')">RIGHT ➡️</button><br>
+
+    <button onclick="sendCommand('down')">DOWN ⬇️</button><br>
+
+    <button onclick="sendCommand('shoot')">SHOOT 🔫</button>
+
+    <h3>Chat</h3>
+
+    <div id="messages" style="height:120px;overflow:auto;border:1px solid black;margin:10px;"></div>
+
+    <input id="input" placeholder="Type message">
+    <button onclick="sendChat()">Send</button>
+
+</div>
+
+<script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
